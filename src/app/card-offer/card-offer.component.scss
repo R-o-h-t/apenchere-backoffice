@@ -1,0 +1,26 @@
+.container {  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 0px 0px;
+  grid-auto-flow: row;
+}
+
+.img { grid-area: 2 / 2 / 5 / 5; display: block; text-align: center; }
+
+.detail { grid-area: 2 / 6 / 5 / 9; }
+
+.description { grid-area: 6 / 2 / 8 / 9; }
+
+table {
+  width: 100%;
+}
+amplify-s3-image {
+  --height: 400px;
+  --width: 400px;
+
+}
+
+
+b{
+  font-size: large;
+}

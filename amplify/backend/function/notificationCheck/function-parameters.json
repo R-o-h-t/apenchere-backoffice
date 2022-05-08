@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "api": {
+      "appenchere": [
+        "Query",
+        "Mutation"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "appenchereAppSyncOperations",
+      "env": "staging",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true
+    }
+  ]
+}
