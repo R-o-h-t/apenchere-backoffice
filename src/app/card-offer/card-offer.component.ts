@@ -4,6 +4,7 @@ import {HomeService} from "../home/home.service";
 import {Offer, Price, Product, User} from "../../models";
 import {DataStore, SortDirection} from "@aws-amplify/datastore";
 import {MatTableDataSource} from "@angular/material/table";
+import {DateTime} from "luxon";
 
 @Component({
   selector: 'app-card-offer',
@@ -17,6 +18,10 @@ export class CardOfferComponent implements OnInit {
   user: User | undefined
   prices: Price[] | undefined
   displayedColumns: string[] = ['id','value', 'userId'];
+  time: number = DateTime.now().toSeconds();
+  interval = setInterval(() => {
+    this.time = DateTime.now().toSeconds();
+  },1000)
 
   constructor(private route: ActivatedRoute, public homeService: HomeService) {
   }
@@ -45,18 +50,23 @@ export class CardOfferComponent implements OnInit {
 
  async getPrices() {
     let idProduct = this.offer?.product?.id
-      // @ts-ignore
+   // @ts-ignore
    this.prices = await DataStore.query(Price, prices => prices.offerID === idProduct, {
      sort: s => {
        return s.createdAt(SortDirection.DESCENDING);
      }
    })
-  }
+ }
 
   get Pricelist(): MatTableDataSource<Price> {
     return new MatTableDataSource(this.prices)
   }
 
+  get Chrono() {
+    return DateTime.fromSeconds(this.time)>DateTime.fromISO(<string>this.offer?.startAt) ?
+      DateTime.fromSeconds(this.time).diff(DateTime.fromISO(<string>this.offer?.startAt)) :
+      DateTime.fromISO(<string>this.offer?.startAt).diff(DateTime.fromSeconds(this.time))
+  }
 
 }
 

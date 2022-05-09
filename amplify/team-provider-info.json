@@ -18,11 +18,11 @@
       "function": {
         "notificationCheck": {
           "deploymentBucketName": "amplify-appenchere-staging-104507-deployment",
-          "s3Key": "amplify-builds/notificationCheck-6f315734325a76435a55-build.zip"
+          "s3Key": "amplify-builds/notificationCheck-4650587a2b56624a7152-build.zip"
         },
         "appenchereAppSyncOperations": {
           "deploymentBucketName": "amplify-appenchere-staging-104507-deployment",
-          "s3Key": "amplify-builds/appenchereAppSyncOperations-LambdaLayerVersiondaeaf752-build.zip"
+          "s3Key": "amplify-builds/appenchereAppSyncOperations-LambdaLayerVersiond59cc364-build.zip"
         }
       }
     }

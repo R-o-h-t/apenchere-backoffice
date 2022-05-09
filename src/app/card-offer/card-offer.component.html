@@ -4,10 +4,14 @@
     <b>Nom du produit : </b> {{product.label}}
     <br>
     <br>
-    <b>Createur de l'offre : </b>{{user.firstname + user.lastname}}
+    <b>Createur de l'offre : </b>{{user.firstname + ' ' + user.lastname}}
     <br>
     <br>
     <b>Description : </b> {{product.description}}
+    <br>
+    <br>
+    <b>Temps Restant : </b> {{Chrono.toFormat("dd 'd' hh 'h' mm 'm 'ss 's'")}}
+
 
   </div>
   <div class="description">
